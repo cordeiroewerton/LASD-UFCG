@@ -1,0 +1,17 @@
+module Cont_M10(input logic clk, rst, output logic [3:0] cont);
+reg[3:0] temp = 0;
+always(posedge clk && posedge rst)begin
+  if(rst) begin
+    cont = 0;
+  end
+  else
+    if(cont<=9) begin
+	   cont = temp;
+		temp = temp + 1;
+	 end
+	 else begin
+	   temp = 0;
+	 end
+  begin
+end
+endmodule
