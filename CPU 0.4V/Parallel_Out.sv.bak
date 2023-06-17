@@ -1,0 +1,16 @@
+module Parallel_Out(input logic RegData, Address, we, clk, output logic wren, DataOut);
+logic[8:0] registrador;
+logic fioA, fioB;
+
+fioA = (Address == 8'hFF) ? 1:0;
+fioB = (fioA) & we;
+wren = (~fioA) & we;
+
+always_ff(posedge clk) begin
+	if(fioB == 1) begin
+		registrador = RegData;
+	end
+end
+
+DataOut = registrador;
+endmodule 

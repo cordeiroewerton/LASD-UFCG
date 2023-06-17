@@ -1,0 +1,17 @@
+module ULA(input logic [7:0] Srca, Srcb, input logic [2:0] ULAControl, output logic Z, output logic [7:0] ULAResult);
+  always_comb begin
+    case(ULAControl):
+	   3'b000: ULAResult = Srca & Srcb;
+	   3'b001: ULAResult = Srca | Srcb;
+	   3'b010: ULAResult = Srca + Srcb;
+	   3'b011: ULAResult = ~(Srca | Srcb);
+	   3'b110: ULAResult = Srca - Srcb;
+	   3'b111: if(Srca<Srcb) ULAResult = 1;
+    endcase
+	 if(ULAResult == 0) begin
+	   Z = 1;
+	 end
+  end
+  
+  
+endmodule 

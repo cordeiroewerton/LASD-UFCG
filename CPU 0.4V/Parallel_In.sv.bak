@@ -1,0 +1,13 @@
+module Parallel_In(input MemData, Address, Data_In, output RegData);
+
+always_comb begin
+	if(Address == 8'FF) begin
+		RegData = Data_In;
+	end
+	else begin
+		RegData = MemData;
+	end
+	
+end
+
+endmodule 

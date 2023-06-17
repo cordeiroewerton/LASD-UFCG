@@ -1,0 +1,1076 @@
+Analysis & Synthesis report for Mod_Teste
+Sat Jun 17 13:32:34 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |Mod_Teste|Control_unit:unidade1|current_state
+ 10. State Machine - |Mod_Teste|LCD_TEST:MyLCD|mLCD_ST
+ 11. State Machine - |Mod_Teste|LCD_TEST:MyLCD|LCD_Controller:u0|ST
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated
+ 17. Source assignments for RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated
+ 18. Parameter Settings for User Entity Instance: LCD_TEST:MyLCD
+ 19. Parameter Settings for User Entity Instance: LCD_TEST:MyLCD|LCD_Controller:u0
+ 20. Parameter Settings for User Entity Instance: RamDataMem:data_mem1|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: RomInstMem:Inst_mem1|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: Control_unit:unidade1
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "Control_unit:unidade1"
+ 25. Port Connectivity Checks: "FF_32:FF_Inst"
+ 26. Port Connectivity Checks: "FF_8:FF_data"
+ 27. Port Connectivity Checks: "FF_8:FF_rd2"
+ 28. Port Connectivity Checks: "FF_8:FF_rd1"
+ 29. Port Connectivity Checks: "RegisterFile:reg1"
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun 17 13:32:34 2023           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; Mod_Teste                                       ;
+; Top-level Entity Name              ; Mod_Teste                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 81                                              ;
+;     Total combinational functions  ; 80                                              ;
+;     Dedicated logic registers      ; 51                                              ;
+; Total registers                    ; 51                                              ;
+; Total pins                         ; 194                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; Mod_Teste          ; Mod_Teste          ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
+; LCD_TEST2.v                      ; yes             ; User Verilog HDL File            ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/LCD_TEST2.v                   ;         ;
+; LCD_Controller.v                 ; yes             ; User Verilog HDL File            ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/LCD_Controller.v              ;         ;
+; RegiterFile.sv                   ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RegiterFile.sv                ;         ;
+; ULA.sv                           ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/ULA.sv                        ;         ;
+; Control_unit.sv                  ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/Control_unit.sv               ;         ;
+; PC.sv                            ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/PC.sv                         ;         ;
+; RomInstMem_init.mif              ; yes             ; User Memory Initialization File  ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RomInstMem_init.mif           ;         ;
+; RamDataMem.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RamDataMem.v                  ;         ;
+; RomInstMem.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RomInstMem.v                  ;         ;
+; FF_8.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/FF_8.sv                       ;         ;
+; FF_32.sv                         ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/FF_32.sv                      ;         ;
+; Mod_Teste.sv                     ; yes             ; User SystemVerilog HDL File      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/Mod_Teste.sv                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_gra1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/db/altsyncram_gra1.tdf        ;         ;
+; db/altsyncram_mq81.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/db/altsyncram_mq81.tdf        ;         ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 81       ;
+;                                             ;          ;
+; Total combinational functions               ; 80       ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 28       ;
+;     -- 3 input functions                    ; 13       ;
+;     -- <=2 input functions                  ; 39       ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 54       ;
+;     -- arithmetic mode                      ; 26       ;
+;                                             ;          ;
+; Total registers                             ; 51       ;
+;     -- Dedicated logic registers            ; 51       ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 194      ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 51       ;
+; Total fan-out                               ; 458      ;
+; Average fan-out                             ; 1.41     ;
++---------------------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; |Mod_Teste                 ; 80 (1)            ; 51 (0)       ; 0           ; 0            ; 0       ; 0         ; 194  ; 0            ; |Mod_Teste                                  ; work         ;
+;    |LCD_TEST:MyLCD|        ; 79 (58)           ; 51 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Mod_Teste|LCD_TEST:MyLCD                   ; work         ;
+;       |LCD_Controller:u0|  ; 21 (21)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Mod_Teste|LCD_TEST:MyLCD|LCD_Controller:u0 ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                    ;
++--------+--------------+---------+--------------+--------------+---------------------------------+--------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File                                        ;
++--------+--------------+---------+--------------+--------------+---------------------------------+--------------------------------------------------------+
+; Altera ; ROM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |Mod_Teste|RomInstMem:Inst_mem1 ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RomInstMem.v ;
+; Altera ; RAM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |Mod_Teste|RamDataMem:data_mem1 ; C:/Users/ewert/Desktop/LASD-UFCG/CPU 0.4V/RamDataMem.v ;
++--------+--------------+---------+--------------+--------------+---------------------------------+--------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Mod_Teste|Control_unit:unidade1|current_state                                                                                                                                                                                          ;
++-------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; Name              ; current_state.s11 ; current_state.s10 ; current_state.s9 ; current_state.s8 ; current_state.s7 ; current_state.s6 ; current_state.s5 ; current_state.s4 ; current_state.s3 ; current_state.s2 ; current_state.s1 ; current_state.s0 ;
++-------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; current_state.s0  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ;
+; current_state.s1  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ;
+; current_state.s2  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                ;
+; current_state.s3  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                ;
+; current_state.s4  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s5  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s6  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s7  ; 0                 ; 0                 ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s8  ; 0                 ; 0                 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s9  ; 0                 ; 0                 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s10 ; 0                 ; 1                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s11 ; 1                 ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ;
++-------------------+-------------------+-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |Mod_Teste|LCD_TEST:MyLCD|mLCD_ST                                  ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; mLCD_ST.000011 ; mLCD_ST.000010 ; mLCD_ST.000001 ; mLCD_ST.000000 ;
++----------------+----------------+----------------+----------------+----------------+
+; mLCD_ST.000000 ; 0              ; 0              ; 0              ; 0              ;
+; mLCD_ST.000001 ; 0              ; 0              ; 1              ; 1              ;
+; mLCD_ST.000010 ; 0              ; 1              ; 0              ; 1              ;
+; mLCD_ST.000011 ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------+
+; State Machine - |Mod_Teste|LCD_TEST:MyLCD|LCD_Controller:u0|ST ;
++-------+-------+-------+-------+--------------------------------+
+; Name  ; ST.11 ; ST.10 ; ST.01 ; ST.00                          ;
++-------+-------+-------+-------+--------------------------------+
+; ST.00 ; 0     ; 0     ; 0     ; 0                              ;
+; ST.01 ; 0     ; 0     ; 1     ; 1                              ;
+; ST.10 ; 0     ; 1     ; 0     ; 1                              ;
+; ST.11 ; 1     ; 0     ; 0     ; 1                              ;
++-------+-------+-------+-------+--------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                       ;
++-----------------------------------------------------+--------------------+
+; Register name                                       ; Reason for Removal ;
++-----------------------------------------------------+--------------------+
+; FF_32:FF_Inst|out[0..7,11..13,16..18,21..23,26..31] ; Lost fanout        ;
+; PC:pc1|PC[0..7]                                     ; Lost fanout        ;
+; FF_8:FF_rd2|out[0..7]                               ; Lost fanout        ;
+; FF_8:FF_rd1|out[0..7]                               ; Lost fanout        ;
+; RegisterFile:reg1|register[1][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[0][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[1][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[2][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[3][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[4][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[5][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[6][7]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][0]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][1]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][2]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][3]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][4]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][5]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][6]                    ; Lost fanout        ;
+; RegisterFile:reg1|register[7][7]                    ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s0              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s1              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s2              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s3              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s5              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s9              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s11             ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s4              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s6              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s7              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s8              ; Lost fanout        ;
+; Control_unit:unidade1|current_state.s10             ; Lost fanout        ;
+; Control_unit:unidade1|current_state~2               ; Lost fanout        ;
+; Control_unit:unidade1|current_state~3               ; Lost fanout        ;
+; Control_unit:unidade1|current_state~4               ; Lost fanout        ;
+; Control_unit:unidade1|current_state~5               ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~8                            ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~9                            ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~10                           ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~11                           ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~12                           ; Lost fanout        ;
+; LCD_TEST:MyLCD|mLCD_ST~13                           ; Lost fanout        ;
+; LCD_TEST:MyLCD|LCD_Controller:u0|ST~8               ; Lost fanout        ;
+; LCD_TEST:MyLCD|LCD_Controller:u0|ST~9               ; Lost fanout        ;
+; Total Number of Removed Registers = 135             ;                    ;
++-----------------------------------------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++-----------------------+--------------------+-------------------------------------------------------------------------------------+
+; Register name         ; Reason for Removal ; Registers Removed due to This Register                                              ;
++-----------------------+--------------------+-------------------------------------------------------------------------------------+
+; FF_32:FF_Inst|out[30] ; Lost Fanouts       ; PC:pc1|PC[0], PC:pc1|PC[1], PC:pc1|PC[2], PC:pc1|PC[3], PC:pc1|PC[4], PC:pc1|PC[5], ;
+;                       ;                    ; PC:pc1|PC[6]                                                                        ;
+; FF_8:FF_rd2|out[1]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][1], RegisterFile:reg1|register[3][1],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][1], RegisterFile:reg1|register[5][1],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][1], RegisterFile:reg1|register[7][1]                  ;
+; FF_8:FF_rd2|out[0]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][0], RegisterFile:reg1|register[3][0],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][0], RegisterFile:reg1|register[5][0],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][0], RegisterFile:reg1|register[7][0]                  ;
+; FF_8:FF_rd2|out[2]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][2], RegisterFile:reg1|register[3][2],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][2], RegisterFile:reg1|register[5][2],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][2], RegisterFile:reg1|register[7][2]                  ;
+; FF_8:FF_rd2|out[3]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][3], RegisterFile:reg1|register[3][3],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][3], RegisterFile:reg1|register[5][3],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][3], RegisterFile:reg1|register[7][3]                  ;
+; FF_8:FF_rd2|out[4]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][4], RegisterFile:reg1|register[3][4],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][4], RegisterFile:reg1|register[5][4],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][4], RegisterFile:reg1|register[7][4]                  ;
+; FF_8:FF_rd2|out[5]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][5], RegisterFile:reg1|register[3][5],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][5], RegisterFile:reg1|register[5][5],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][5], RegisterFile:reg1|register[7][5]                  ;
+; FF_8:FF_rd2|out[6]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][6], RegisterFile:reg1|register[3][6],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][6], RegisterFile:reg1|register[5][6],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][6], RegisterFile:reg1|register[7][6]                  ;
+; FF_8:FF_rd2|out[7]    ; Lost Fanouts       ; RegisterFile:reg1|register[2][7], RegisterFile:reg1|register[3][7],                 ;
+;                       ;                    ; RegisterFile:reg1|register[4][7], RegisterFile:reg1|register[5][7],                 ;
+;                       ;                    ; RegisterFile:reg1|register[6][7], RegisterFile:reg1|register[7][7]                  ;
++-----------------------+--------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 51    ;
+; Number of registers using Synchronous Clear  ; 18    ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 51    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 43    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Mod_Teste|LCD_TEST:MyLCD|LCD_Controller:u0|mStart ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Mod_Teste|LCD_TEST:MyLCD|Selector2                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Source assignments for RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                           ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                            ;
++---------------------------------+--------------------+------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Source assignments for RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                           ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                            ;
++---------------------------------+--------------------+------+----------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD_TEST:MyLCD ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; LCD_INTIAL     ; 0     ; Signed Integer                     ;
+; LCD_RESTART    ; 4     ; Signed Integer                     ;
+; LCD_LINE1      ; 5     ; Signed Integer                     ;
+; LCD_CH_LINE    ; 21    ; Signed Integer                     ;
+; LCD_LINE2      ; 22    ; Signed Integer                     ;
+; LUT_SIZE       ; 37    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD_TEST:MyLCD|LCD_Controller:u0 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; CLK_Divide     ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RamDataMem:data_mem1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------+
+; Parameter Name                     ; Value                ; Type                                  ;
++------------------------------------+----------------------+---------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                               ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                               ;
+; WIDTH_A                            ; 8                    ; Signed Integer                        ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                        ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WIDTH_B                            ; 1                    ; Untyped                               ;
+; WIDTHAD_B                          ; 1                    ; Untyped                               ;
+; NUMWORDS_B                         ; 1                    ; Untyped                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                               ;
+; BYTE_SIZE                          ; 8                    ; Untyped                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; INIT_FILE                          ; UNUSED               ; Untyped                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                               ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                               ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                               ;
+; CBXI_PARAMETER                     ; altsyncram_gra1      ; Untyped                               ;
++------------------------------------+----------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RomInstMem:Inst_mem1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------+
+; Parameter Name                     ; Value                ; Type                                  ;
++------------------------------------+----------------------+---------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                               ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                               ;
+; WIDTH_A                            ; 32                   ; Signed Integer                        ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                        ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WIDTH_B                            ; 1                    ; Untyped                               ;
+; WIDTHAD_B                          ; 1                    ; Untyped                               ;
+; NUMWORDS_B                         ; 1                    ; Untyped                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                               ;
+; BYTE_SIZE                          ; 8                    ; Untyped                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; INIT_FILE                          ; RomInstMem_init.mif  ; Untyped                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                               ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                               ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                               ;
+; CBXI_PARAMETER                     ; altsyncram_mq81      ; Untyped                               ;
++------------------------------------+----------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Control_unit:unidade1 ;
++----------------+--------+------------------------------------------+
+; Parameter Name ; Value  ; Type                                     ;
++----------------+--------+------------------------------------------+
+; s0             ; 0000   ; Unsigned Binary                          ;
+; s1             ; 0001   ; Unsigned Binary                          ;
+; s2             ; 0010   ; Unsigned Binary                          ;
+; s3             ; 0011   ; Unsigned Binary                          ;
+; s4             ; 0100   ; Unsigned Binary                          ;
+; s5             ; 0101   ; Unsigned Binary                          ;
+; s6             ; 0110   ; Unsigned Binary                          ;
+; s7             ; 0111   ; Unsigned Binary                          ;
+; s8             ; 1000   ; Unsigned Binary                          ;
+; s9             ; 1001   ; Unsigned Binary                          ;
+; s10            ; 1010   ; Unsigned Binary                          ;
+; s11            ; 1011   ; Unsigned Binary                          ;
+; R_TYPE         ; 000000 ; Unsigned Binary                          ;
+; LW             ; 101011 ; Unsigned Binary                          ;
+; SW             ; 010011 ; Unsigned Binary                          ;
+; BEQ            ; 100100 ; Unsigned Binary                          ;
+; ADDI           ; 101000 ; Unsigned Binary                          ;
+; J              ; 001010 ; Unsigned Binary                          ;
++----------------+--------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                 ;
++-------------------------------------------+------------------------------------------------------+
+; Name                                      ; Value                                                ;
++-------------------------------------------+------------------------------------------------------+
+; Number of entity instances                ; 2                                                    ;
+; Entity Instance                           ; RamDataMem:data_mem1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                          ;
+;     -- WIDTH_A                            ; 8                                                    ;
+;     -- NUMWORDS_A                         ; 256                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 1                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ;
+; Entity Instance                           ; RomInstMem:Inst_mem1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                  ;
+;     -- WIDTH_A                            ; 32                                                   ;
+;     -- NUMWORDS_A                         ; 256                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 1                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ;
++-------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Control_unit:unidade1"                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; rst  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FF_32:FF_Inst"                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; out[15..14] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out[10..8]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FF_8:FF_data"                                                                                                                                                                           ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; en        ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; en[-1]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; out       ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (32 bits) it drives.  The 24 most-significant bit(s) in the port expression will be connected to GND.            ;
+; out[7..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FF_8:FF_rd2"                                                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; en     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; en[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FF_8:FF_rd1"                                                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; en     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; en[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RegisterFile:reg1"                                                                                                                                                               ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ra1  ; Input  ; Warning  ; Input port expression (5 bits) is wider than the input port (3 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; ra2  ; Input  ; Warning  ; Input port expression (5 bits) is wider than the input port (3 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rst  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.                                     ;
+; S0   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S1   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S2   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S3   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S4   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S5   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S6   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
+; S7   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jun 17 13:32:33 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Mod_Teste -c Mod_Teste
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file lcd_test2.v
+    Info (12023): Found entity 1: LCD_TEST
+Info (12021): Found 1 design units, including 1 entities, in source file lcd_controller.v
+    Info (12023): Found entity 1: LCD_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file decod.sv
+    Info (12023): Found entity 1: decod
+Info (12021): Found 1 design units, including 1 entities, in source file f_div.sv
+    Info (12023): Found entity 1: f_div
+Info (12021): Found 1 design units, including 1 entities, in source file cont_m10.sv
+    Info (12023): Found entity 1: Cont_M10
+Info (12021): Found 1 design units, including 1 entities, in source file regiterfile.sv
+    Info (12023): Found entity 1: RegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file ula.sv
+    Info (12023): Found entity 1: ULA
+Info (12021): Found 1 design units, including 1 entities, in source file control_unit.sv
+    Info (12023): Found entity 1: Control_unit
+Warning (10261): Verilog HDL Event Control warning at PC.sv(3): Event Control contains a complex event expression
+Info (12021): Found 1 design units, including 1 entities, in source file pc.sv
+    Info (12023): Found entity 1: PC
+Info (12021): Found 1 design units, including 1 entities, in source file instr_mem.sv
+    Info (12023): Found entity 1: Instr_Mem
+Info (12021): Found 1 design units, including 1 entities, in source file ramdatamem.v
+    Info (12023): Found entity 1: RamDataMem
+Info (12021): Found 1 design units, including 1 entities, in source file rominstmem.v
+    Info (12023): Found entity 1: RomInstMem
+Info (12021): Found 1 design units, including 1 entities, in source file parallel_in.sv
+    Info (12023): Found entity 1: Parallel_In
+Info (12021): Found 1 design units, including 1 entities, in source file parallel_out.sv
+    Info (12023): Found entity 1: Parallel_Out
+Warning (10261): Verilog HDL Event Control warning at FF_8.sv(3): Event Control contains a complex event expression
+Info (12021): Found 1 design units, including 1 entities, in source file ff_8.sv
+    Info (12023): Found entity 1: FF_8
+Warning (10261): Verilog HDL Event Control warning at FF_32.sv(3): Event Control contains a complex event expression
+Info (12021): Found 1 design units, including 1 entities, in source file ff_32.sv
+    Info (12023): Found entity 1: FF_32
+Info (12021): Found 1 design units, including 1 entities, in source file mod_teste.sv
+    Info (12023): Found entity 1: Mod_Teste
+Info (12127): Elaborating entity "Mod_Teste" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Mod_Teste.sv(42): object "w_wd3" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at Mod_Teste.sv(58): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Mod_Teste.sv(59): truncated value with size 5 to match size of target (3)
+Warning (10034): Output port "HEX0" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX1" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX2" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX3" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX4" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX5" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX6" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "HEX7" at Mod_Teste.sv(9) has no driver
+Warning (10034): Output port "LEDG[8..3]" at Mod_Teste.sv(10) has no driver
+Warning (10034): Output port "LEDG[1]" at Mod_Teste.sv(10) has no driver
+Warning (10034): Output port "LEDR[17..10]" at Mod_Teste.sv(11) has no driver
+Warning (10034): Output port "LEDR[7]" at Mod_Teste.sv(11) has no driver
+Warning (10034): Output port "UART_TXD" at Mod_Teste.sv(13) has no driver
+Info (12128): Elaborating entity "LCD_TEST" for hierarchy "LCD_TEST:MyLCD"
+Warning (10230): Verilog HDL assignment warning at LCD_TEST2.v(60): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at LCD_TEST2.v(69): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at LCD_TEST2.v(71): truncated value with size 32 to match size of target (6)
+Info (12128): Elaborating entity "LCD_Controller" for hierarchy "LCD_TEST:MyLCD|LCD_Controller:u0"
+Warning (10230): Verilog HDL assignment warning at LCD_Controller.v(66): truncated value with size 32 to match size of target (5)
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:reg1"
+Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ula1"
+Info (12128): Elaborating entity "FF_8" for hierarchy "FF_8:FF_rd1"
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc1"
+Warning (10230): Verilog HDL assignment warning at PC.sv(4): truncated value with size 32 to match size of target (8)
+Info (12128): Elaborating entity "RamDataMem" for hierarchy "RamDataMem:data_mem1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RamDataMem:data_mem1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "RamDataMem:data_mem1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "RamDataMem:data_mem1|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gra1.tdf
+    Info (12023): Found entity 1: altsyncram_gra1
+Info (12128): Elaborating entity "altsyncram_gra1" for hierarchy "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated"
+Info (12128): Elaborating entity "RomInstMem" for hierarchy "RomInstMem:Inst_mem1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RomInstMem:Inst_mem1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "RomInstMem:Inst_mem1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "RomInstMem:Inst_mem1|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "RomInstMem_init.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mq81.tdf
+    Info (12023): Found entity 1: altsyncram_mq81
+Info (12128): Elaborating entity "altsyncram_mq81" for hierarchy "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated"
+Info (12128): Elaborating entity "FF_32" for hierarchy "FF_32:FF_Inst"
+Info (12128): Elaborating entity "Control_unit" for hierarchy "Control_unit:unidade1"
+Warning (10230): Verilog HDL assignment warning at Control_unit.sv(18): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at Control_unit.sv(19): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at Control_unit.sv(20): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at Control_unit.sv(21): truncated value with size 32 to match size of target (6)
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "RamDataMem:data_mem1|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[7]"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "RomInstMem:Inst_mem1|altsyncram:altsyncram_component|altsyncram_mq81:auto_generated|q_a[31]"
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[7]" and its non-tri-state driver.
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "LCD_DATA[0]~synth"
+    Warning (13010): Node "LCD_DATA[1]~synth"
+    Warning (13010): Node "LCD_DATA[2]~synth"
+    Warning (13010): Node "LCD_DATA[3]~synth"
+    Warning (13010): Node "LCD_DATA[4]~synth"
+    Warning (13010): Node "LCD_DATA[5]~synth"
+    Warning (13010): Node "LCD_DATA[6]~synth"
+    Warning (13010): Node "LCD_DATA[7]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at GND
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+    Warning (13410): Pin "HEX4[0]" is stuck at GND
+    Warning (13410): Pin "HEX4[1]" is stuck at GND
+    Warning (13410): Pin "HEX4[2]" is stuck at GND
+    Warning (13410): Pin "HEX4[3]" is stuck at GND
+    Warning (13410): Pin "HEX4[4]" is stuck at GND
+    Warning (13410): Pin "HEX4[5]" is stuck at GND
+    Warning (13410): Pin "HEX4[6]" is stuck at GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[3]" is stuck at GND
+    Warning (13410): Pin "HEX5[4]" is stuck at GND
+    Warning (13410): Pin "HEX5[5]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at GND
+    Warning (13410): Pin "HEX6[0]" is stuck at GND
+    Warning (13410): Pin "HEX6[1]" is stuck at GND
+    Warning (13410): Pin "HEX6[2]" is stuck at GND
+    Warning (13410): Pin "HEX6[3]" is stuck at GND
+    Warning (13410): Pin "HEX6[4]" is stuck at GND
+    Warning (13410): Pin "HEX6[5]" is stuck at GND
+    Warning (13410): Pin "HEX6[6]" is stuck at GND
+    Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[3]" is stuck at GND
+    Warning (13410): Pin "HEX7[4]" is stuck at GND
+    Warning (13410): Pin "HEX7[5]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
+    Warning (13410): Pin "UART_TXD" is stuck at GND
+    Warning (13410): Pin "LCD_ON" is stuck at VCC
+    Warning (13410): Pin "LCD_BLON" is stuck at VCC
+    Warning (13410): Pin "LCD_RW" is stuck at GND
+Info (17049): 135 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 21 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK_27"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[5]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+    Warning (15610): No output dependent on input pin "SW[10]"
+    Warning (15610): No output dependent on input pin "SW[11]"
+    Warning (15610): No output dependent on input pin "SW[12]"
+    Warning (15610): No output dependent on input pin "SW[13]"
+    Warning (15610): No output dependent on input pin "SW[14]"
+    Warning (15610): No output dependent on input pin "SW[15]"
+    Warning (15610): No output dependent on input pin "SW[16]"
+    Warning (15610): No output dependent on input pin "SW[17]"
+    Warning (15610): No output dependent on input pin "UART_RXD"
+Info (21057): Implemented 275 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 25 input pins
+    Info (21059): Implemented 89 output pins
+    Info (21060): Implemented 80 bidirectional pins
+    Info (21061): Implemented 81 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 200 warnings
+    Info: Peak virtual memory: 4620 megabytes
+    Info: Processing ended: Sat Jun 17 13:32:34 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
