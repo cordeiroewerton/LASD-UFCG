@@ -73,37 +73,3 @@ assign LEDR[9] = w_RegWrite;
 assign w_d1x5 = w_Jump;
 endmodule
 
-
-/*
-
-assign w_d0x5 = w_rd1SrcA;
-assign w_d1x5 = w_SrcB;
-assign w_d1x4 = w_ULAResultWd3;
-
-Instr_Mem inst_mem1(.A(w_PC), .RD(w_Inst));
-
-RST = ~KEY[2]
-
-wire[7:0] w_rd1SrcA, w_rd2; 
-reg [7:0] w_SrcB;
-
-RegisterFile reg1(.ra1(SW[13:11]), .ra2(3'b010), .wa3(SW[16:14]), .we3(1'b1), .wd3(SW[7:0]), .clk(KEY[1]), .rst(~KEY[2]), .rd1(w_rd1SrcA), .rd2(w_rd2));
-
-always@(SW[17]) begin
-
-  if(SW[17] == 1) begin
-    w_SrcB = 8'h07;
-  end
-  else begin
-    w_SrcB = w_rd2;
-  end
-end
-ULA ula1(.SrcA(w_rd1SrcA), .SrcB(w_SrcB), .ULAControl(SW[10:8]), .Z(LEDG[0]), .ULAResult(w_d0x4));
-
-assign w_d0x0 = w_rd1SrcA;
-assign w_d1x0 = w_rd2;
-assign w_d1x1 = w_SrcB;
-assign LEDG[1] = KEY[1];
-
-decod decod1(.in1(SW[3:0]), .out1(HEX0[6:0]));
-decod decod2(.in1(SW[7:4]), .out1(HEX1[6:0]));*/
